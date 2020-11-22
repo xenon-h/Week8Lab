@@ -19,6 +19,6 @@
             <li><a href="admin">Admin</a></li>
             <li><a href="login" >Logout</a></li>
         </ul>
-        <h2>Inventory for ${user.firstname} ${user.lastname}</h2>
+        <h2>Inventory for ${firstname} ${lastname}</h2>
     </body>
 </html>
