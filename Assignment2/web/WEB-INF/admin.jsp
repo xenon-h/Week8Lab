@@ -15,9 +15,9 @@
         <h1>Home Inventory</h1>
         <h3>Menu</h3>
         <ul>
-            <li><a href="/inventory">Inventory</a></li>
-            <li><a href="/admin">Admin</a></li>
-            <li><a href="/login?action=logout" >Logout</a></li>
+            <li><a href="inventory">Inventory</a></li>
+            <li><a href="admin">Admin</a></li>
+            <li><a href="login" >Logout</a></li>
         </ul>
     </body>
 </html>

@@ -45,12 +45,14 @@ public class LoginServlet extends HttpServlet {
         }
         
         HttpSession session = request.getSession();
+//        User authedUser = new User(user.getEmail(), user.getActive(), null, user.getLastName(), null);
+//        session.setAttribute("user", authedUser);
         session.setAttribute("email", email);
         
-        if (user.getRole().getRoleId() == 1) {
+        if (user.getRole().getRoleId() == 1|| user.getRole().getRoleId() == 3) {
             response.sendRedirect("admin");
         } else {
-            response.sendRedirect("notes");
+            response.sendRedirect("inventory");
         }
     }
 
