@@ -5,9 +5,7 @@
  */
 package servlets;
 
-import dataaccess.UserDB;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,7 +47,6 @@ public class AdminServlet extends HttpServlet {
         UserService service = new UserService();
 
         String action = request.getParameter("action");
-//        User temp user = (User)request.getParameter("item");
         
         if (action != null) {
 
@@ -74,16 +71,12 @@ public class AdminServlet extends HttpServlet {
                 break;
                 default:
 
-//                    String activeString = request.getParameter("active");
-//                    Boolean active = Boolean.parseBoolean(activeString);
                     String firstName = request.getParameter("firstName");
                     String lastName = request.getParameter("lastName");
                     String password = request.getParameter("password");
-//                    String roleName = request.getParameter("roleName");
                     int roleID = 0;
                     try {
                         roleID = service.getUser(email).getRole().getRoleId();
-//                    Role role = new Role(roleID, roleName);
                     } catch (Exception ex) {
                         Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -96,7 +89,6 @@ public class AdminServlet extends HttpServlet {
                                 } catch (Exception ex) {
                                     Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
                                     User user = new User(email, true, firstName, lastName, password);
-//                                    user.setRole(roleID);
                                     request.setAttribute("newUser", user);
                                 }
                             }
@@ -107,13 +99,11 @@ public class AdminServlet extends HttpServlet {
                                 } catch (Exception ex) {
                                     Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
                                     User user = new User(email, true, firstName, lastName, password);
-//                                    user.setRole(roleID);
                                     request.setAttribute("editUser", user);
                                 }
                                 break;
                         }
                     } else {
-                        //message about invalid fields potentially
                     }
                     break;
 

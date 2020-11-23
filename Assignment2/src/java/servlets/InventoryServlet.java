@@ -50,6 +50,7 @@ public class InventoryServlet extends HttpServlet {
             throws ServletException, IOException {
         ItemDB itemService = new ItemDB();
         String action = request.getParameter("action");
+        String email = request.getParameter("email");
 
         if (action != null) {
 
@@ -58,7 +59,10 @@ public class InventoryServlet extends HttpServlet {
             switch (action) {
                 case "delete":
                     try {
-                        itemService.delete(itemService.get(itemId));
+                        if (itemService.get(itemId).getOwner().getEmail().equals(email)) {
+                        Item toDelete = itemService.get(itemId);
+                        itemService.delete(toDelete);
+                        }
                     } catch (Exception ex) {
                         Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }

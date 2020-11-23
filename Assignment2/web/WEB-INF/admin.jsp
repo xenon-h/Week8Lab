@@ -51,7 +51,7 @@
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         <td>
-                            <button class='iconButton editButton' type="button" class ="editButton" onclick="edit('${item.email}')" name='action' value='editSelect'>
+                            <button class='iconButton editButton' type="button" class ="editButton" onclick="edit('${item.email}')" name='action' value='Edit'>
                                 <i class="fas fa-user-edit"></i>
                             </button>
                             <input type='hidden' name="email" value='${item.email}' >

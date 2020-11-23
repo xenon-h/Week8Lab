@@ -25,7 +25,7 @@
             <li><a href="login" >Logout</a></li>
         </ul>
         <h1>Inventory for ${firstname} ${lastname}</h1>
-        <div id="websiteController"><input type="button" name="addButton" onclick="add()" value="Add user"></div>
+        <div id="websiteController"><input type="button" name="addButton" onclick="add()" value="Add Item"></div>
         <div id="ViewUser">
             <table class="userTable">
                 <tr class="columnLabels">
@@ -35,19 +35,21 @@
                     <td>Delete</td>
                 </tr>
                 <c:forEach items="${itemList}" var="item">
-                    <tr>
-                    <form method="post" action="inventory">
-                        <td id="${item.category.categoryId}">${item.category.categoryName}</td>
-                        <td>${item.itemName}</td>
-                        <td>${item.price}</td>
-                        <td>
-                            <input type="hidden" name="itemId" value="${item.itemId}" />
-                            <button class='iconButton deleteButton' type="submit" name='action' value='delete'>
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </form>
-                    </tr>
+                    <c:if test="${email == item.owner.email}">
+                        <tr>
+                        <form method="post" action="inventory">
+                            <td id="${item.category.categoryId}">${item.category.categoryName}</td>
+                            <td>${item.itemName}</td>
+                            <td>${item.price}</td>
+                            <td>
+                                <input type="hidden" name="itemId" value="${item.itemId}" />
+                                <button class='iconButton deleteButton' type="submit" name='action' value='delete'>
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </form>
+                        </tr>
+                    </c:if>
                 </c:forEach>
             </table>
         </div>
@@ -60,7 +62,7 @@
                 </div>
                 <h4>Add User</h4>
 
-                <form method='post' action='admin'>
+                <form method='post' action='inventory'>
                     <div class="inputs">
                         <label name='category' id="category">Category
                             <select name="category" id="category">
@@ -68,7 +70,7 @@
                                     <option value="${category.categoryId}">${category.categoryName}</option>
                                 </c:forEach>
                             </select>
-                        
+
                         </label>
                         <label>Item Name<input type='text' name='firstName' value='${newUser.firstName}'></label>
                         <label>Price<input type='text' name='lastName' value='${newUser.lastName}'></label>
