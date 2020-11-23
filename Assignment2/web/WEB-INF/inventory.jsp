@@ -9,16 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="styles.css">
+        <title>Home Inventory</title>
     </head>
     <body>
         <h1>Home Inventory</h1>
-        <h3>Menu</h3>
+        <h1>Menu</h1>
         <ul>
             <li><a href="inventory">Inventory</a></li>
             <li><a href="admin">Admin</a></li>
             <li><a href="login" >Logout</a></li>
         </ul>
-        <h2>Inventory for ${firstname} ${lastname}</h2>
+        <h1>Inventory for ${firstname} ${lastname}</h1>
     </body>
 </html>
