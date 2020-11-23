@@ -19,7 +19,7 @@ public class ItemDB {
     public List<Item> getAll() throws Exception {//returns all categoriers
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
-            return em.createNamedQuery("Category.findAll", Item.class).getResultList();
+            return em.createNamedQuery("Item.findAll", Item.class).getResultList();
         } finally {
             em.close();
         }

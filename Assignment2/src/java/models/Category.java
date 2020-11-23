@@ -108,5 +108,5 @@ public class Category implements Serializable {
     public String toString() {
         return "models.Category[ categoryId=" + categoryId + " ]";
     }
-    
+
 }

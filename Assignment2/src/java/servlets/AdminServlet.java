@@ -80,7 +80,7 @@ public class AdminServlet extends HttpServlet {
                     String lastName = request.getParameter("lastName");
                     String password = request.getParameter("password");
 //                    String roleName = request.getParameter("roleName");
-                    int roleID;
+                    int roleID = 0;
                     try {
                         roleID = service.getUser(email).getRole().getRoleId();
 //                    Role role = new Role(roleID, roleName);
